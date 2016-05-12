@@ -1,0 +1,133 @@
+// TO DO: Clean up
+
+$input-line-height: 23px;
+$input-horizontal-padding: 3px;
+$input-vertical-padding: 7px;
+
+$label-font-size-focus-on: 12px;
+$label-font-size-focus-off: 14px;
+
+$icon-size: 17px;
+
+$tooltip-background-color: #333;
+$tooltip-caret-height: 10px;
+
+$error-color: red;
+
+.validation--messaging {
+	background: rgba(0, 0, 0, .9);
+	color: #fff;
+	left: 0;
+	position: fixed;
+	right: 0;
+	text-align: center;
+	top: 0;
+	z-index: 1;
+	transform: translate3d(0, -100%, 0);
+	transition: all 250ms ease-out;
+
+	ul {
+		display: inline-block;
+		margin: 20px auto;
+		text-align: left;
+	}
+
+	&.opened {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+.ux--form {
+	box-sizing: border-box;
+	position: relative;
+	z-index: 0;
+
+	input {
+		border: solid 2px #cecece;
+		outline: 0;
+
+		&:valid {
+
+		}
+
+		&:invalid {
+			border-color: $error-color;
+		}
+
+		&:required {
+			border-color: #333;
+		}
+	}
+}
+
+.ux--form--group {
+	border: none;
+	position: relative;
+
+	&.validation--error {
+		input {
+			border-color: $error-color;
+			color: $error-color;
+		}
+
+		label {
+			color: $error-color;
+		}
+	}
+}
+
+.input--hint {
+	display: inline-block;
+	position: relative;
+
+	&:before {
+		border-radius: 50px;
+		border: solid 1px #666;
+		color: #666;
+		content: 'i';
+		display: inline-block;
+		font-size: 12px;
+		height: $icon-size;
+		line-height: 16px;
+		text-align: center;
+		width: $icon-size;
+	}
+
+	.input--tooltip {
+		background: $tooltip-background-color;
+		border-radius: 10px;
+		color: #fff;
+		display: none;
+		font-size: 12px;
+		margin-top: -$icon-size/2;
+		padding: 15px 17px;
+		position: absolute;
+		transform: translate3d($icon-size + 15px, -50%, 0);
+		width: 300px;
+
+		&:after {
+			border-bottom: $tooltip-caret-height solid transparent;
+			border-right: $tooltip-caret-height solid $tooltip-background-color;
+			border-top: $tooltip-caret-height solid transparent;
+			content: '';
+			height: 0;
+			left: -$tooltip-caret-height;
+			margin-top: -$tooltip-caret-height;
+			position: absolute;
+			top: 50%;
+			width: 0;
+		}
+
+		ul {
+			list-style-position: outside;
+			margin: 0;
+			padding-left: 15px;
+		}
+	}
+
+	&:hover {
+		.input--tooltip {
+			display: block;
+		}
+	}
+}

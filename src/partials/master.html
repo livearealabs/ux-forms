@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Forms Usablity</title>
+	<meta name="description" content="" />
+	<meta name="viewport" content="width=device-width" />
+
+	<link rel="stylesheet" href="styles/app.min.css">
+</head>
+<body>
+
+	<div class="validation--messaging">
+		<ul>
+			<li>This.</li>
+			<li>Is.</li>
+			<li>Required.</li>
+		</ul>
+	</div>
+
+	<form class="ux--form" novalidate>
+		<h1>UX Forms</h1>
+		<p>Default states for inputs and input groups.</p>
+
+		<section>
+			<h2>General Input</h2>
+			<fieldset class="ux--form--group">
+				<label for="general-input">Email</label>
+				<input id="general-input" type="email" title="General Input" />
+			</fieldset>
+		</section>
+
+		<section>
+			<h2>Input with tooltip hint</h2>
+			<fieldset class="ux--form--group">
+				<label for="tooltip-hint">Tooltip Hint</label>
+				<input id="tooltip-hint" type="text" />
+				<div class="input--hint">
+					<div class="input--tooltip">
+						<ul>
+							<li>Some helpful.</li>
+							<li>Information.</li>
+							<li>Listed here.</li>
+						</ul>
+					</div>
+				</div>
+			</fieldset>
+		</section>
+
+		<section>
+			<h2>Password</h2>
+			<fieldset class="ux--form--group">
+				<label for="password">Password</label>
+				<input id="password" type="password" aria-required="true" aria-invalid="false" required />
+				<div class="input--hint">
+					<div class="input--tooltip">
+						<ul>
+							<li>Be at least eight characters long</li>
+							<li>Contain at leaset one of each of these: uppercase letters, lowercase letters, numbers, symbols.</li>
+							<li>Don't contain the user's user name or screen name.</li>
+						</ul>
+					</div>
+				</div>
+			</fieldset>
+		</section>
+
+		<section>
+			<h2>Validation Error</h2>
+			<fieldset class="ux--form--group validation--error">
+				<label for="validation-error">Validation Error</label>
+				<input id="validation-error" type="email" title="Validation Error" />
+			</fieldset>
+		</section>
+
+	</form>
+</body>
+</html>

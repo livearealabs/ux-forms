@@ -1,0 +1,24 @@
+build
+node_modules
+Thumbs.db
+.DS_Store
+
+# Don't check in PSD's
+*.psd
+
+# from Ember build
+# compiled output
+dist
+tmp
+
+# dependencies
+node_modules
+bower_components
+
+# misc
+.sass-cache
+connect.lock
+coverage/*
+libpeerconnection.log
+npm-debug.log
+testem.log

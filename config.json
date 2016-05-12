@@ -1,0 +1,35 @@
+{
+	"name": "form_usablity",
+	"server": {
+		"port": 8001
+	},
+	"build": {
+		"root": "./dist/",
+		"styles": {
+			"path": "styles/"
+		},
+		"scripts": {
+			"path": "js/"
+		}
+	},
+	"source": {
+		"root": "./src/",
+		"partials": "partials/",
+		"scripts": {
+			"entry": "js/app.js",
+			"files": "js/**/*.js"
+		},
+		"styles": {
+			"entry": "sass/bootstrap.scss",
+			"files": [
+				"sass/**/*.scss"
+			],
+			"supported": {
+				"browsers": [
+					"not ie < 10",
+					"last 5 versions"
+				]
+			}
+		}
+	}
+}
