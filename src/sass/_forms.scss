@@ -63,6 +63,8 @@ $error-color: red;
 
 .ux--form--group {
 	border: none;
+	margin: 0;
+	padding: 0;
 	position: relative;
 
 	&.validation--error {
