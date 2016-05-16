@@ -43,20 +43,32 @@ $error-color: red;
 	z-index: 0;
 
 	input {
-		border: solid 2px #cecece;
-		outline: 0;
 		padding: 5px 7px;
+
+		&:focus {
+			outline: 2px solid green;
+		}
 
 		&:valid {
 
 		}
 
 		&:invalid {
-			border-color: $error-color;
+			outline-color: $error-color;
 		}
 
 		&:required {
-			border-color: #333;
+			outline-color: #333;
+		}
+	}
+
+	label {
+	}
+
+	.validation--error {
+		input,
+		label {
+			color: $error-color;
 		}
 	}
 }
@@ -66,17 +78,6 @@ $error-color: red;
 	margin: 0;
 	padding: 0;
 	position: relative;
-
-	&.validation--error {
-		input {
-			border-color: $error-color;
-			color: $error-color;
-		}
-
-		label {
-			color: $error-color;
-		}
-	}
 }
 
 .input--hint {

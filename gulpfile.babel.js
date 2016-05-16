@@ -10,6 +10,8 @@ import postcss from 'gulp-postcss';
 import rename from 'gulp-rename';
 import sass from 'gulp-sass';
 
+import uxForm from './gulp-ux-form';
+
 const browser = browserSync.create();
 
 function gobbleError(error) {
@@ -19,6 +21,7 @@ function gobbleError(error) {
 
 gulp.task('generate-html', () => {
 	gulp.src(`${config.source.root + config.source.partials}master.html`)
+		.pipe(uxForm())
 		.pipe(rename('index.html'))
 		.pipe(gulp.dest(config.build.root))
 		.pipe(browser.stream());
