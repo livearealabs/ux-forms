@@ -13,7 +13,8 @@ function replaceTokens (file) {
 	var content = file.contents.toString();
 
 	$ = cheerio.load(content, {
-		recognizeSelfClosing: true
+		recognizeSelfClosing: true,
+		ignoreWhitespace: false
 	});
 
 	$('UXText').each(createTextInput);
@@ -33,9 +34,15 @@ function createFieldSet () {
 	return $(`<fieldset class="${FIELDSET_CLASS}" />`);
 }
 
+function assignAttributes (attr) {
+	return Object.assign(attr, {
+		'aria-required': this.attribs.required || false
+	})
+}
+
 function createTextInput () {
 	$(this).replaceWith(() => {
-		const attr = this.attribs;
+		const attr = assignAttributes(this.attribs);
 		const $fieldset = createFieldSet();
 		const $input = $('<input type="text"></input>').attr(attr);
 		const $label = $(this).find('label').attr({
