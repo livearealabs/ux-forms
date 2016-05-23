@@ -1,10 +1,11 @@
-// http://cheeriojs.github.io/cheerio/
-import cheerio from 'cheerio';
-import { PluginError } from 'gulp-util';
-import Stream from 'stream';
+var cheerio = require('cheerio');
+var PluginError = require('gulp-util').PluginError;
+var Stream = require('stream');
 
 const PLUGIN_NAME = 'gulp-ux-forms';
 const TOKEN_NAME = 'UXForm';
+
+const FORM_CLASS = 'ux--form';
 const FIELDSET_CLASS = 'ux--form--group';
 
 var $;
@@ -16,6 +17,10 @@ function replaceTokens (file) {
 		recognizeSelfClosing: true,
 		ignoreWhitespace: false
 	});
+
+	$('UXText, UXPassword, UXCheckbox, UXRadio, UXTextArea')
+		.closest('form')
+		.addClass(FORM_CLASS);
 
 	$('UXText').each(createTextInput);
 
@@ -36,7 +41,7 @@ function createFieldSet () {
 
 function assignAttributes (attr) {
 	return Object.assign(attr, {
-		'aria-required': this.attribs.required || false
+		'aria-required': attr.required || false
 	})
 }
 
@@ -65,10 +70,17 @@ function createPassword () {
 		const $label = $(this).find('label').attr({
 			for: attr.id
 		});
+		const $tooltipIcon = $('<div class="input--hint" />');
+		const $tooltip = $('<div class="input--tooltip" />');
+
+		$tooltip
+			.html($(this).find('tooltip').html())
+			.appendTo($tooltipIcon);
 
 		$fieldset
 			.append($label)
-			.append($input);
+			.append($input)
+			.append($tooltipIcon);
 
 		return $fieldset;
 	});
@@ -123,7 +135,7 @@ function createTextArea () {
 	});
 }
 
-export default function () {
+function compile () {
 	const stream = new Stream.Transform({ objectMode: true });
 
 	stream._transform = (file, unused, callback) => {
@@ -145,3 +157,5 @@ export default function () {
 
 	return stream;
 }
+
+module.exports = compile;
