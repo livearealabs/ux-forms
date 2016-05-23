@@ -8,7 +8,7 @@ import postcss from 'gulp-postcss';
 import rename from 'gulp-rename';
 import sass from 'gulp-sass';
 
-import uxForm from './gulp-ux-form';
+import uxForm from 'gulp-lal-uxforms';
 
 const browser = browserSync.create();
 
