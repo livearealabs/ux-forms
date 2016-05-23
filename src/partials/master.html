@@ -28,6 +28,27 @@
 				<label for="general-input">Email</label>
 				<input id="general-input" type="email" title="General Input" />
 			</fieldset>
+
+			<fieldset class="ux--form--group">
+				<label for="dropdownz">Dropdowns</label>
+				<select id="dropdownz">
+					<option>Gary Payton</option>
+					<option>Marshawn Lynch</option>
+					<option>Ken Griffey Jr.</option>
+					<option>Shawn Kemp</option>
+					<option>Steve Largent</option>
+				</select>
+			</fieldset>
+
+			<fieldset class="ux--form--group">
+				<label for="general">Email</label>
+				<input id="general" type="email" title="General" />
+			</fieldset>
+
+			<fieldset class="ux--form--group">
+				<label for="general">Email</label>
+				<input id="general" type="email" title="General" />
+			</fieldset>
 		</section>
 
 		<section>
@@ -68,19 +89,20 @@
 			<h2>Validation Error</h2>
 			<fieldset class="ux--form--group validation--error">
 				<label for="validation-error">Validation Error</label>
-				<input id="validation-error" type="text" title="Validation Error" value="This is required." />
+				<input id="validation-error" type="text" title="Validation Error" />
+				<div class="validation--message">This is required.</div>
 			</fieldset>
 		</section>
 
 		<section>
 			<h2>Checkboxes</h2>
-			<fieldset class="ux--form--group">
+			<fieldset class="ux--form--group ux--input--inline">
 				<label for="chk1">
 					<input id="chk1" type="checkbox" aria-checked="false" /> Checkbox 2
 				</label>
 			</fieldset>
 
-			<fieldset class="ux--form--group">
+			<fieldset class="ux--form--group ux--input--inline">
 				<label for="chk2">
 					<input id="chk2" type="checkbox" aria-checked="false" /> Checkbox 2
 				</label>
@@ -89,21 +111,19 @@
 
 		<section>
 			<h2>Radio Buttons</h2>
-			<fieldset class="ux--form--group">
+			<fieldset class="ux--form--group ux--input--inline">
 				<label for="rdio1">
 					<input id="rdio1" name="rdio-grp" type="radio" aria-checked="false" /> Radio 1
 				</label>
-
-				<div class="validation--message--inline">This is required.</div>
 			</fieldset>
 
-			<fieldset class="ux--form--group">
+			<fieldset class="ux--form--group ux--input--inline">
 				<label for="rdio2">
 					<input id="rdio2" name="rdio-grp" type="radio" aria-checked="false" /> Radio 2
 				</label>
 			</fieldset>
 
-			<fieldset class="ux--form--group">
+			<fieldset class="ux--form--group ux--input--inline">
 				<label for="rdio3">
 					<input id="rdio3" name="rdio-grp" type="radio" aria-checked="false" /> Radio 3
 				</label>
@@ -113,7 +133,7 @@
 		<section>
 			<h2>Gulp Implementation</h2>
 
-			<UXText id="foo" name="" value="" pattern="">
+			<UXText id="foo" name="" value="" pattern="" placeHolder="Email/Username">
 				<label>Text</label>
 			</UXText>
 
@@ -137,7 +157,7 @@
 				<label>Text Area</label>
 			</UXTextArea>
 
-			<UXPassword id="" name="" value="" placeHolder="" label="" required="" error-message="">
+			<UXPassword id="password" name="" value="" placeHolder="" label="" required="" error-message="">
 				<label>Password</label>
 				<tooltip>
 					<ul>
@@ -147,8 +167,13 @@
 					</ul>
 				</tooltip>
 			</UXPassword>
+		</section>
 
+		<section>
+			<button type="submit">Submit</button>
 		</section>
 	</form>
+
+	<script src="/js/app.js"></script>
 </body>
 </html>

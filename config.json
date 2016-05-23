@@ -16,7 +16,7 @@
 		"root": "./src/",
 		"partials": "partials/",
 		"scripts": {
-			"entry": "js/app.js",
+			"entry": "js/Forms.js",
 			"files": "js/**/*.js"
 		},
 		"styles": {
