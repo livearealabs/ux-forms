@@ -43,22 +43,19 @@ $error-color: red;
 	}
 }
 
-.ux--form {
+form {
 	box-sizing: border-box;
+	line-height: 2.4em;
 	position: relative;
 	z-index: 0;
-
-	.ux--input--inline {
-		select,
-		textarea,
-		input {
-			display: inline-block;
-		}
-	}
 
 	select,
 	textarea {
 		outline: 1px solid #f1f1f1;
+	}
+
+	label {
+		display: block;
 	}
 
 	input {
@@ -87,10 +84,6 @@ $error-color: red;
 		}
 	}
 
-	label {
-		display: block;
-	}
-
 	.validation--error {
 		.validation--message {
 			color: $error-color;
@@ -103,12 +96,20 @@ $error-color: red;
 	display: block;
 }
 
-.ux--form--group {
+fieldset {
 	@include clearfix();
 	border: none;
 	margin: 0;
 	padding: 0;
 	position: relative;
+
+	&.inline {
+		select,
+		textarea,
+		input {
+			display: inline-block;
+		}
+	}
 }
 
 .input--hint {

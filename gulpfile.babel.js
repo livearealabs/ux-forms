@@ -19,7 +19,7 @@ function gobbleError(error) {
 
 gulp.task('generate-html', () => {
 	gulp.src(`${config.source.root + config.source.partials}master.html`)
-		.pipe(uxForm())
+		// .pipe(uxForm())
 		.pipe(rename('index.html'))
 		.pipe(gulp.dest(config.build.root))
 		.pipe(browser.stream());
