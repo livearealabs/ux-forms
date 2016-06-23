@@ -82,8 +82,9 @@ form {
 		&:invalid {
 		}
 
-		&:not([type='checkbox']):not([type='radio']) {
-			outline: 1px solid $outline-color;
+		&[type='checkbox'],
+		&[type='radio'] {
+			outline: 0;
 		}
 	}
 
