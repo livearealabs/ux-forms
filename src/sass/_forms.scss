@@ -13,7 +13,7 @@ $outline-color: #333;
 $label-font-size-focus-on: 12px;
 $label-font-size-focus-off: 14px;
 
-$icon-size: 17px;
+$icon-size: 19px;
 
 $tooltip-background-color: #333;
 $tooltip-caret-height: 10px;
@@ -130,7 +130,7 @@ fieldset {
 		display: inline-block;
 		font-size: .75em;
 		height: $icon-size;
-		line-height: 16px;
+		line-height: $icon-size;
 		text-align: center;
 		width: $icon-size;
 	}
@@ -141,9 +141,9 @@ fieldset {
 		color: #fff;
 		display: none;
 		font-size: 12px;
-		margin-top: -$icon-size/2;
 		padding: 15px 17px;
 		position: absolute;
+		top: 50%;
 		transform: translate3d($icon-size + 15px, -50%, 0);
 		width: 18.75em;
 
@@ -161,9 +161,14 @@ fieldset {
 		}
 
 		ul {
+			line-height: 1.7em;
 			list-style-position: outside;
 			margin: 0;
 			padding-left: 15px;
+
+			li {
+				margin-bottom: 5px;
+			}
 		}
 	}
 
