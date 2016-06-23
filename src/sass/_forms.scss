@@ -1,14 +1,14 @@
-// TO DO: Clean up
 @mixin clearfix {
 	zoom: 1;
 	&:before, &:after { content: ''; display: table; }
 	&:after { clear: both; }
 }
 
-
 $input-line-height: 23px;
 $input-horizontal-padding: 3px;
 $input-vertical-padding: 7px;
+
+$outline-color: #333;
 
 $label-font-size-focus-on: 12px;
 $label-font-size-focus-off: 14px;
@@ -21,37 +21,38 @@ $tooltip-caret-height: 10px;
 $error-color: red;
 
 .validation--messaging {
-	background: rgba(0, 0, 0, .9);
-	color: #fff;
-	left: 0;
-	position: fixed;
-	right: 0;
+	display: none;
+	margin: 25px 0;
 	text-align: center;
-	top: 0;
-	z-index: 1;
-	transform: translate3d(0, -100%, 0);
-	transition: all 250ms ease-out;
 
 	ul {
+		border: solid 1px #000;
+		border-radius: 5px;
 		display: inline-block;
-		margin: 20px auto;
+		padding: 25px;
 		text-align: left;
+
+		li {
+			list-style-position: inside;
+			white-space: nowrap;
+		}
 	}
 
 	&.opened {
-		transform: translate3d(0, 0, 0);
+		display: table-cell;
 	}
 }
 
 form {
 	box-sizing: border-box;
 	line-height: 2.4em;
+	padding: 50px;
 	position: relative;
 	z-index: 0;
 
 	select,
 	textarea {
-		outline: 1px solid #f1f1f1;
+		outline: 1px solid $outline-color;
 	}
 
 	label {
@@ -65,6 +66,15 @@ form {
 			outline-color: #333;
 		}
 
+		&:required {
+			&:valid {
+
+			}
+
+			&:invalid {
+			}
+		}
+
 		&:valid {
 
 		}
@@ -72,15 +82,8 @@ form {
 		&:invalid {
 		}
 
-		&:required {
-		}
-
 		&:not([type='checkbox']):not([type='radio']) {
-			outline: 1px solid #f1f1f1;
-		}
-
-		&[required] {
-			outline-color: $error-color;
+			outline: 1px solid $outline-color;
 		}
 	}
 
@@ -94,6 +97,8 @@ form {
 .validation--message {
 	color: transparent;
 	display: block;
+	line-height: 2.4em;
+	min-height: 2.4em;
 }
 
 fieldset {

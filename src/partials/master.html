@@ -7,16 +7,20 @@
 	<meta name="viewport" content="width=device-width" />
 
 	<link rel="stylesheet" href="styles/app.min.css">
+	<style>
+		section {
+			border-bottom: solid 1px #ccc;
+			margin-bottom: 25px;
+			padding: 20px;
+		}
+
+		section:first-of-type {
+			border-top: solid 1px #ccc;
+			margin-top: 25px;
+		}
+	</style>
 </head>
 <body>
-
-	<div class="validation--messaging">
-		<ul>
-			<li>This.</li>
-			<li>Is.</li>
-			<li>Required.</li>
-		</ul>
-	</div>
 
 	<form novalidate>
 		<h1>Order Form</h1>
@@ -26,7 +30,8 @@
 
 			<fieldset>
 				<label for="email">Email</label>
-				<input id="email" type="email" title="Email" />
+				<input id="email" type="email" title="Email" required />
+				<div class="validation--message"></div>
 			</fieldset>
 
 			<fieldset>
@@ -41,6 +46,7 @@
 						</ul>
 					</div>
 				</div>
+				<div class="validation--message"></div>
 			</fieldset>
 		</section>
 
@@ -204,16 +210,15 @@
 		</section>
 
 		<section>
-			<h2>Validation Error</h2>
-			<fieldset class="validation--error">
-				<label for="validation-error">Validation Error</label>
-				<input id="validation-error" type="text" title="Validation Error" />
-				<div class="validation--message">This is required.</div>
-			</fieldset>
-		</section>
-
-		<section>
 			<button type="submit">Submit</button>
+
+			<div class="validation--messaging">
+				<ul>
+					<li>This.</li>
+					<li>Is.</li>
+					<li>Required.</li>
+				</ul>
+			</div>
 		</section>
 	</form>
 

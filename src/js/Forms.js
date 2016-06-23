@@ -5,7 +5,7 @@
 	var messaging;
 
 	function init () {
-		form = document.getElementsByClassName('ux--form')[0];
+		form = document.querySelector('form');
 		messaging = document.getElementsByClassName('validation--messaging')[0];
 
 		bindEvents();
@@ -22,7 +22,7 @@
 	}
 
 	function bindEvents () {
-		var formSets = form.getElementsByClassName('ux--form--group');
+		var formSets = form.getElementsByTagName('fieldset');
 
 		fields.push(...formSets);
 
@@ -42,11 +42,14 @@
 	function validate () {
 		fields.forEach(function (field) {
 			var inputs = field.querySelectorAll('input:not([type=hidden])');
+			var message = field.querySelector('.validation--message');
 
 			field.classList.toggle('validation--error');
 
 			[...inputs].forEach(function (input) {
-				input.value = 'This is required.';
+				if (message) {
+					message.innerText = 'This is required.';
+				}
 			});
 		});
 	}
